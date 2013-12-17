@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts }
+{% bootstrap_messages %}
+
+{# Display a form #}
+
+{%block title%} Contacto-Hire{%endblock%}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/sign.css">
+{% endblock %}
+{% block bar %}
+{% endblock %}
+{%block content%}
+ <div class="container">
+
+    <div class="row">
+    {% if mensaje %}
+        <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <p>{{ mensaje }}</p>
+       </div>
+    {% endif %}
+        <div class="main">
+            <h3>Please Log In</h3>
+            <form action="." method="post" class="form-signin">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-lg btn-block btn-primary ">
+            {% bootstrap_icon "ok" %} Sign In </button>
+    {% endbuttons %}
+</form>
+        <div class="login-or">
+        <hr class="hr-or">
+        <span class="span-or">or</span>
+            <h3><a href="{% url "sign_up" %}">Sign Up</a></h3>
+      </div>
+</div>
+   </div>
+</div>
+{%endblock%}

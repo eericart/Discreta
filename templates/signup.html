@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts }
+{% bootstrap_messages %}
+
+{# Display a form #}
+
+{%block title%} Contacto-Hire{%endblock%}
+
+{%block content%}
+
+<div class="container ">
+<div class="page-header">
+    <h3>Sign Up</h3>
+    </div>
+<form action="." method="post" class="form-signup">
+    {% csrf_token %}
+    {% bootstrap_form form layout="vertical" %}
+    {% buttons submit='Enviar' reset="Cancelar" %}{% endbuttons %}
+
+</form>
+</div>
+</div>
+{%endblock%}
