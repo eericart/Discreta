@@ -46,7 +46,7 @@ INSTALLED_APPS = (
     'south',
     'storages',
     'account',
-    'bootstrap3',
+
 )
 
 MIDDLEWARE_CLASSES = (

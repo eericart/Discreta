@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     carrera = models.OneToOneField('Carrera')
+    Total_Credito = models.IntegerField()
 
     def __unicode__(self):
         return self.user.email
@@ -12,9 +13,7 @@ class UserProfile(models.Model):
 
 class Carrera(models.Model):
     id = models.CharField('ID', primary_key=True,max_length=3)
-    pensum= models.OneToOneField('Pensum')
-
-class Pensum(models.Model):
+    nombre = models.CharField(max_length=30, blank=False, null=False)
     materias=models.ManyToManyField('Materia')
 
 
@@ -24,7 +23,14 @@ class Materia(models.Model):
     credito = models.IntegerField()
     creditoRequsito = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
-    rate = models.IntegerField()
+    importancia = models.IntegerField(default=0)
+    profesor = models.ManyToManyField('Profesor')
+
 
 class Prerequisito(models.Model):
      materia = models.ManyToManyField('Materia')
+
+class Profesor(models.Model):
+    nombre = models.CharField(max_length=30, blank=False, null=False)
+    appellido = models.CharField(max_length=30, blank=False, null=False)
+    rate = models.IntegerField(default=0)

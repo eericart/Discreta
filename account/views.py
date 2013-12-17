@@ -37,8 +37,6 @@ def logout_v(request):
 
 #Registration
 def sign_up(request):
-    return  redirect('/')
-    """
 	if request.user.is_authenticated():
 		return HttpResponseRedirect('/')
 	else:
@@ -67,4 +65,3 @@ def sign_up(request):
 		form=RegistrationForm()
 		ctx={'form':form,}
 		return render_to_response('signup.html',ctx, context_instance=RequestContext(request))
-"""
