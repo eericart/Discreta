@@ -5,5 +5,5 @@ admin.site.register(UserProfile)
 admin.site.register(Carrera)
 admin.site.register(Profesor)
 admin.site.register(Materia)
-
+admin.site.register(MateriaAprobada)
 

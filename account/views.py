@@ -3,13 +3,18 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from account.models import User, UserProfile
-from account.form import LoginForm, RegistrationForm
+from account.form import LoginForm, RegistrationForm, RegistrationFormCarrera
 from django.contrib.auth import login , logout, authenticate
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 #Authenticated
+#@login_required(login_url='/login/')
+def home_profile(request):
+    return render_to_response('home.html', context_instance=RequestContext(request))
+
+
 def login_v(request): #Log in View
     msg=''
     if request.user.is_authenticated():
@@ -23,7 +28,7 @@ def login_v(request): #Log in View
                 auth_user=authenticate(email=email,password=password)
                 if auth_user is not None and auth_user.is_active:
                     login(request,auth_user)
-                    return HttpResponseRedirect('/')
+                    return redirect('/index')
                 else:
                     msg='Wrong Email and password combination.'
         form=LoginForm()
@@ -32,36 +37,34 @@ def login_v(request): #Log in View
 
 @login_required(login_url='/login/')
 def logout_v(request):
-	logout(request)
-	return HttpResponseRedirect('/')
+    logout(request)
+    return redirect('/')
 
 #Registration
 def sign_up(request):
-	if request.user.is_authenticated():
-		return HttpResponseRedirect('/')
-	else:
-		if request.method=="POST":
-			form=RegistrationForm(request.POST)
-			if form.is_valid():
-				name=form.cleaned_data['name']
-				lastname=form.cleaned_data['lastname']
-				email=form.cleaned_data['email']
-				password=form.cleaned_data['password']
-				birthday=form.cleaned_data['birthday']
-				country=form.cleaned_data['country']
-				new_u=User.objects.create_user(username= email, email= email, password=password)
-				new_u.first_name=name
-				new_u.last_name=lastname
-				new_u.save()
-				UserProfile.objects.create(user=new_u)
-				new_p=UserProfile.objects.get(user=new_u)
-				new_p.birthday=birthday
-				new_p.country=country
-				new_p.save()
-				new_user = authenticate(email=email,password=password)
-				login(request, new_user)
-				return HttpResponseRedirect('/' )
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/')
+    else:
+        if request.method=="POST":
+            form=RegistrationForm(request.POST)
+            formR = RegistrationFormCarrera(request.POST)
+            if form.is_valid() and formR.is_valid():
+                name=form.cleaned_data['name']
+                lastname=form.cleaned_data['lastname']
+                email=form.cleaned_data['email']
+                password=form.cleaned_data['password']
+                carrera=formR.cleaned_data['carrera']
+                new_u=User.objects.create_user(username= email, email= email, password=password)
+                new_u.first_name=name
+                new_u.last_name=lastname
+                new_u.save()
+                UserProfile.objects.create(user=new_u)
+                new_p=UserProfile.objects.get(user=new_u)
+                new_p.carrera = carrera
+                new_p.save()
+                new_user = authenticate(email=email,password=password)
+                login(request, new_user)
+                return redirect('/index' )
 
-		form=RegistrationForm()
-		ctx={'form':form,}
-		return render_to_response('signup.html',ctx, context_instance=RequestContext(request))
+        ctx={'form':RegistrationForm,'formR':RegistrationFormCarrera}
+        return render_to_response('signup.html',ctx, context_instance=RequestContext(request))

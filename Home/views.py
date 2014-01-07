@@ -4,10 +4,14 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from Home.form import Contact
 from django.core.mail import send_mail, BadHeaderError
+from django.shortcuts import redirect
 
 
 def home(request):
-    return render_to_response('index.html', context_instance=RequestContext(request))
+    if request.user.is_authenticated():
+        return redirect("/index/")
+    else:
+        return render_to_response('index.html', context_instance=RequestContext(request))
 
 
 def about(request):

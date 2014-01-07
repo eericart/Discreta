@@ -22,6 +22,7 @@
 <form action="." method="post" class="form-signup">
     {% csrf_token %}
     {% bootstrap_form form layout="vertical" %}
+    {% bootstrap_form formR layout="vertical" %}
     {% buttons submit='Enviar' reset="Cancelar" %}{% endbuttons %}
 
 </form>

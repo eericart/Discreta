@@ -1,0 +1,15 @@
+[
+    {"pk": "AHC101", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 4, "prerequsito": [], "nombre": "COMUNICACI\u00d3N EN LENGUA ESPA\u00d1OLA I", "profesor": [2]}},
+    {"pk": "AHC102", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 4, "prerequsito": [], "nombre": "COMUNICACI\u00d3N EN LENGUA ESPA\u00d1OLA II", "profesor": [2]}},
+    {"pk": "AHO101", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 2, "prerequsito": [], "nombre": "ORIENTACI\u00d3N ACAD\u00c9MICA E INSTITUCIONAL", "profesor": [3]}},
+    {"pk": "AHQ101", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 4, "prerequsito": [], "nombre": "QUEHACER CIENT\u00cdFICO", "profesor": [6]}},
+    {"pk": "CBM101", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 5, "prerequsito": [], "nombre": "\u00c1LGEBRA Y GEOMETR\u00cdA ANAL\u00cdTICA", "profesor": [4, 5]}},
+    {"pk": "CBM102", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 5, "prerequsito": [], "nombre": "C\u00c1LCULO DIFERENCIAL", "profesor": [4, 5, 7]}},
+    {"pk": "CBM201", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 5, "prerequsito": [], "nombre": "C\u00c1LCULO INTEGRAL", "profesor": [4, 5, 7]}},
+    {"pk": "CBM206", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 4, "prerequsito": ["CBM201"], "nombre": "PROBABILIDAD Y ESTAD\u00cdSTICA", "profesor": [8]}},
+    {"pk": "IDS", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 4, "prerequsito": [], "nombre": "Proceso De Software", "profesor": [1]}},
+    {"pk": "IDS311", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 4, "prerequsito": [], "nombre": "Proceso De Software", "profesor": [1]}},
+    {"pk": "ING201", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 3, "prerequsito": [], "nombre": "NTRODUCCI\u00d3N A LA INGENIER\u00cdA", "profesor": [9]}},
+    {"pk": "ING210", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 3, "prerequsito": ["AHQ101", "CBM206"], "nombre": "INVESTIGACI\u00d3N EN INGENIER\u00cdA", "profesor": [8]}},
+    {"pk": "INS204", "model": "account.materia", "fields": {"importancia": 0, "creditoRequsito": 0, "credito": 5, "prerequsito": ["CBM102"], "nombre": "FUNDAMENTOS DE PROGRAMACI\u00d3N", "profesor": [10]}}
+]

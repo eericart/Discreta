@@ -1,6 +1,5 @@
 from django import forms
-from django.forms.extras.widgets import SelectDateWidget
-from account.choice import *
+from account.models import UserProfile
 
 
 class LoginForm(forms.Form):
@@ -13,4 +12,9 @@ class RegistrationForm(forms.Form):
     lastname = forms.CharField(widget=forms.TextInput())
     email = forms.EmailField(widget=forms.TextInput())
     password = forms.CharField(widget=forms.PasswordInput(render_value=False), min_length=8)
-    carreara = forms.ChoiceField(choices=Carerra)
+
+class RegistrationFormCarrera(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('carrera',)
+

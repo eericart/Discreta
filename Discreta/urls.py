@@ -34,5 +34,6 @@ urlpatterns += patterns('account.views',
     url(r'^login/$','login_v',name='login_v'),
     url(r'^logout/$','logout_v',name='logout_v'),
     url(r'^signup/$','sign_up',name='sign_up'),
+    url(r'^index/$','home_profile',name='home_p'),
 
 )

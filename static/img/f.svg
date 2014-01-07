@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="179pt"
+   height="179pt"
+   viewBox="0 0 179 179"
+   version="1.1"
+   id="svg3158"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="f.svg">
+  <metadata
+     id="metadata3188">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3186" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="721"
+     id="namedview3184"
+     showgrid="false"
+     inkscape:zoom="1.4916398"
+     inkscape:cx="215.7145"
+     inkscape:cy="182.62736"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3158"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <path
+     d=" M 83.71 0.00 L 95.39 0.00 C 114.75 1.28 133.62 8.97 148.25 21.75 C 166.25 37.19 177.54 60.05 179.00 83.71 L 179.00 95.17 C 177.78 114.84 169.89 134.01 156.81 148.76 C 141.38 166.46 118.74 177.54 95.31 179.00 L 83.82 179.00 C 64.16 177.77 45.00 169.89 30.25 156.82 C 12.54 141.38 1.45 118.72 0.00 95.28 L 0.00 83.61 C 1.50 60.00 12.77 37.19 30.73 21.77 C 45.38 8.96 64.30 1.25 83.71 0.00 Z"
+     id="path3162"
+     fill="#3d4645"
+     style="fill:#800000" />
+  <path
+     d="m 263.25895,-26.279803 83.61,0 0,83.71 c -1.46,-23.66 -12.75,-46.52 -30.75,-61.9599999 -14.63,-12.7800001 -33.5,-20.4700001 -52.86,-21.7500001 z"
+     id="path3164"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff" />
+  <text
+     xml:space="preserve"
+     style="font-size:115.19999695px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MSD10;-inkscape-font-specification:MSD10"
+     x="46.023232"
+     y="129.15419"
+     id="text3586"
+     sodipodi:linespacing="125%"
+     transform="scale(1.1426307,0.87517341)"><tspan
+       sodipodi:role="line"
+       x="46.023232"
+       y="129.15419"
+       style="font-size:115.19999695px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:MSD10;-inkscape-font-specification:MSD10"
+       id="tspan3002">P</tspan></text>
+  <flowRoot
+     xml:space="preserve"
+     id="flowRoot3590"
+     style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Droid Arabic Kufi;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Droid Arabic Kufi;font-stretch:normal;font-variant:normal"><flowRegion
+       id="flowRegion3592"><rect
+         id="rect3594"
+         width="80.44838"
+         height="43.576206"
+         x="-191.73531"
+         y="35.366714"
+         style="-inkscape-font-specification:Droid Arabic Kufi;font-family:Droid Arabic Kufi;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal" /></flowRegion><flowPara
+       id="flowPara3596" /></flowRoot>  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+     x="-156.87434"
+     y="45.422764"
+     id="text3598"
+     sodipodi:linespacing="125%"
+     transform="scale(0.8,0.8)"><tspan
+       sodipodi:role="line"
+       id="tspan3600"
+       x="-156.87434"
+       y="45.422764" /></text>
+</svg>

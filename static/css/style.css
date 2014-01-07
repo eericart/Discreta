@@ -3,7 +3,6 @@ body {
     padding-top: 10px;
     padding-bottom: 40px;
     height: 100%;
-    background-color: #eee;
 }
 
 .form-signin {
@@ -96,3 +95,15 @@ body {
     text-align: center;
     line-height: 300%;
   }
+#logo {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.trans {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.0);
+    box-shadow: none;
+    }
