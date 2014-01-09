@@ -11,8 +11,8 @@ from django.contrib.auth.decorators import login_required
 
 #Authenticated
 @login_required(login_url='/login/')
-def home_profile(request):
-    return render_to_response('home.html', context_instance=RequestContext(request))
+def dash(request):
+    return render_to_response('dash.html', context_instance=RequestContext(request))
 
 
 def login_v(request): #Log in View

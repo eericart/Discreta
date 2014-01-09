@@ -105,9 +105,13 @@ body {
 .trans {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.0);
-    box-shadow: none;
+   box-shadow: none;
     }
 
+.tabs {
+        text-align: center;
+     padding-top: 40px;
+}
 .pag
 {
     position: fixed;
