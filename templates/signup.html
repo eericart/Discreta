@@ -14,7 +14,12 @@
 {%block title%} Contacto-Hire{%endblock%}
 
 {%block content%}
-
+{% if msg %}
+        <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <p>{{ msg }}</p>
+       </div>
+    {% endif %}
 <div class="container ">
 <div class="page-header">
     <h3>Sign Up</h3>
@@ -22,7 +27,6 @@
 <form action="." method="post" class="form-signup">
     {% csrf_token %}
     {% bootstrap_form form layout="vertical" %}
-    {% bootstrap_form formR layout="vertical" %}
     {% buttons submit='Enviar' reset="Cancelar" %}{% endbuttons %}
 
 </form>

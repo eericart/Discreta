@@ -41,9 +41,9 @@
      inkscape:window-height="721"
      id="namedview3184"
      showgrid="false"
-     inkscape:zoom="1.4916398"
-     inkscape:cx="215.7145"
-     inkscape:cy="182.62736"
+     inkscape:zoom="2.4759777"
+     inkscape:cx="111.875"
+     inkscape:cy="111.875"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1"
@@ -53,26 +53,26 @@
   <path
      d=" M 83.71 0.00 L 95.39 0.00 C 114.75 1.28 133.62 8.97 148.25 21.75 C 166.25 37.19 177.54 60.05 179.00 83.71 L 179.00 95.17 C 177.78 114.84 169.89 134.01 156.81 148.76 C 141.38 166.46 118.74 177.54 95.31 179.00 L 83.82 179.00 C 64.16 177.77 45.00 169.89 30.25 156.82 C 12.54 141.38 1.45 118.72 0.00 95.28 L 0.00 83.61 C 1.50 60.00 12.77 37.19 30.73 21.77 C 45.38 8.96 64.30 1.25 83.71 0.00 Z"
      id="path3162"
-     fill="#3d4645"
-     style="fill:#800000" />
+     style="fill:#800000"
+     fill="#3d4645" />
+  <text
+     xml:space="preserve"
+     style="font-size:115.19999694999999917px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:Times New Roman"
+     x="71.498848"
+     y="104.64144"
+     id="text3586"
+     sodipodi:linespacing="125%"
+     transform="scale(1.1426307,0.87517341)"><tspan
+       sodipodi:role="line"
+       x="71.498848"
+       y="104.64144"
+       style="font-size:115.19999694999999917px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;font-family:Times New Roman;-inkscape-font-specification:Times New Roman"
+       id="tspan3003">P</tspan></text>
   <path
      d="m 263.25895,-26.279803 83.61,0 0,83.71 c -1.46,-23.66 -12.75,-46.52 -30.75,-61.9599999 -14.63,-12.7800001 -33.5,-20.4700001 -52.86,-21.7500001 z"
      id="path3164"
      inkscape:connector-curvature="0"
      style="fill:#ffffff" />
-  <text
-     xml:space="preserve"
-     style="font-size:115.19999695px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MSD10;-inkscape-font-specification:MSD10"
-     x="46.023232"
-     y="129.15419"
-     id="text3586"
-     sodipodi:linespacing="125%"
-     transform="scale(1.1426307,0.87517341)"><tspan
-       sodipodi:role="line"
-       x="46.023232"
-       y="129.15419"
-       style="font-size:115.19999695px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:MSD10;-inkscape-font-specification:MSD10"
-       id="tspan3002">P</tspan></text>
   <flowRoot
      xml:space="preserve"
      id="flowRoot3590"
@@ -96,4 +96,27 @@
        id="tspan3600"
        x="-156.87434"
        y="45.422764" /></text>
+  <flowRoot
+     xml:space="preserve"
+     id="flowRoot3007"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+     transform="scale(0.8,0.8)"><flowRegion
+       id="flowRegion3009"><rect
+         id="rect3011"
+         width="61.67709"
+         height="43.576202"
+         x="64.358704"
+         y="156.70969" /></flowRegion><flowPara
+       id="flowPara3013">M</flowPara></flowRoot>  <text
+     xml:space="preserve"
+     style="font-size:55.74285889000000083px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MSD10;-inkscape-font-specification:MSD10"
+     x="85.527939"
+     y="130.636"
+     id="text3015"
+     sodipodi:linespacing="125%"
+     transform="scale(1.0694737,0.93503936)"><tspan
+       sodipodi:role="line"
+       id="tspan3017"
+       x="85.527939"
+       y="130.636">M</tspan></text>
 </svg>

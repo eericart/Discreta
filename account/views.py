@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 #Authenticated
-#@login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def home_profile(request):
     return render_to_response('home.html', context_instance=RequestContext(request))
 
@@ -42,29 +42,27 @@ def logout_v(request):
 
 #Registration
 def sign_up(request):
+    msg=''
     if request.user.is_authenticated():
         return HttpResponseRedirect('/')
     else:
         if request.method=="POST":
-            form=RegistrationForm(request.POST)
-            formR = RegistrationFormCarrera(request.POST)
-            if form.is_valid() and formR.is_valid():
+            form = RegistrationForm(request.POST)
+            if form.is_valid():
                 name=form.cleaned_data['name']
                 lastname=form.cleaned_data['lastname']
                 email=form.cleaned_data['email']
                 password=form.cleaned_data['password']
-                carrera=formR.cleaned_data['carrera']
                 new_u=User.objects.create_user(username= email, email= email, password=password)
                 new_u.first_name=name
                 new_u.last_name=lastname
                 new_u.save()
-                UserProfile.objects.create(user=new_u)
-                new_p=UserProfile.objects.get(user=new_u)
-                new_p.carrera = carrera
-                new_p.save()
                 new_user = authenticate(email=email,password=password)
-                login(request, new_user)
-                return redirect('/index' )
+                if new_user is not None :
+                    login(request,new_user)
+                    return redirect('/index')
+                else:
+                    msg='Wrong'
 
-        ctx={'form':RegistrationForm,'formR':RegistrationFormCarrera}
+        ctx={'form':RegistrationForm,'msg':msg}
         return render_to_response('signup.html',ctx, context_instance=RequestContext(request))

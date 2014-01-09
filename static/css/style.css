@@ -107,3 +107,10 @@ body {
   border-color: rgba(255, 255, 255, 0.0);
     box-shadow: none;
     }
+
+.pag
+{
+    position: fixed;
+    bottom: 0;
+
+}

@@ -9,15 +9,14 @@ urlpatterns = patterns('Home.views',
     url(r'^about/$','about',name='about'),
     url(r'^contacto/$','contacto',name='contact'),
     url(r'^contact/thanks/$','thankyou',name='thanks'),
+    url(r'^contact/thanks/$','thankyou',name='thanks'),
+    url(r'^profesores/page/(?P<pagina>.*)/$','profesores_v',name='profesores'),
+    url(r'^profesor/(?P<id_prod>.*)/$','singleProfe_v',name='single_profe'),
 
 
 )
 
 urlpatterns += patterns('',
-    # Examples:
-    # url(r'^$', 'Discreta.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
 )
 
@@ -37,3 +36,9 @@ urlpatterns += patterns('account.views',
     url(r'^index/$','home_profile',name='home_p'),
 
 )
+
+urlpatterns += patterns('ws.views',
+    url(r'^ws/User/$','wsUser_view',name= "ws_user_url"),
+    url(r'^ws/Profesor/$','wsProf_view',name= "ws_prof_url"),
+)
+

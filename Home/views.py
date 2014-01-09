@@ -1,23 +1,21 @@
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from Home.form import Contact
 from django.core.mail import send_mail, BadHeaderError
-from django.shortcuts import redirect
+from account.models import Profesor
+from django.core.paginator import Paginator,EmptyPage,InvalidPage
 
 
 def home(request):
-    if request.user.is_authenticated():
-        return redirect("/index/")
-    else:
-        return render_to_response('index.html', context_instance=RequestContext(request))
+    return render_to_response('index.html', context_instance=RequestContext(request))
 
 
 def about(request):
     mensage = "Mensage de about"
     ctx = {'msg': mensage}
     return render_to_response('about.html', ctx, context_instance=RequestContext(request))
+
 
 
 def contacto(request):
@@ -46,5 +44,24 @@ def contacto(request):
         formulario = Contact()
     ctx = {'form': formulario,'enviado': enviado}
     return render_to_response('contacto.html', ctx, context_instance=RequestContext(request))
+
 def thankyou(request):
     return render_to_response('thanks.html')
+
+def profesores_v(request,pagina):
+    profesorList = Profesor.objects.all();
+    paginator = Paginator(profesorList,10);
+    try:
+        page = int(pagina)
+    except:
+        page = 1
+    try:
+        profesores = paginator.page(page)
+    except (EmptyPage,InvalidPage):
+        profesores = paginator.page(paginator.num_pages)
+    ctx = {'profesores':profesores}
+    return render_to_response('Profesores.html',ctx,context_instance=RequestContext(request))
+def singleProfe_v(request):
+    pass
+
+
