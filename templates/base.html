@@ -5,9 +5,12 @@
         <TITLE>{%block title%}Titulo Base{% endblock %}</TITLE>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Le styles -->
+        <!-- Styles -->
         <link href="/static/css/bootstrap.min.css" rel="stylesheet">
         <link href="/static/css/style.css" rel="stylesheet">
+        <!-- JavaScript -->
+        <script src="/static/js/jquery-1.9.1.min.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
         {% block css%}
         {%endblock%}
         {% block script %}
@@ -58,9 +61,7 @@
           <a class="navbar-text pull-right" href="{% url "about" %}">Term</a>
       </nav>
   </div>
-    <!-- JavaScript -->
-      <script src="/static/js/jquery-1.9.1.min.js"></script>
-      <script src="/static/js/bootstrap.js"></script>
+
 </BODY>
 
 </HTML>

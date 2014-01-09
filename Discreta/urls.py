@@ -11,7 +11,9 @@ urlpatterns = patterns('Home.views',
     url(r'^contact/thanks/$','thankyou',name='thanks'),
     url(r'^contact/thanks/$','thankyou',name='thanks'),
     url(r'^profesores/page/(?P<pagina>.*)/$','profesores_v',name='profesores'),
-    url(r'^profesor/(?P<id_prod>.*)/$','singleProfe_v',name='single_profe'),
+    url(r'^profesor/(?P<id_prof>.*)/$','singleProfe_v',name='single_profe'),
+    url(r'^api/get_profe/$', 'get_profe', name='get_profe'),
+
 
 
 )

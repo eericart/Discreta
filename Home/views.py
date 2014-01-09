@@ -1,9 +1,11 @@
+from django.core.serializers import json
+from django.db.models import Q
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from Home.form import Contact
 from django.core.mail import send_mail, BadHeaderError
-from account.models import Profesor
+from account.models import Profesor,ProfesorRate,Materia
 from django.core.paginator import Paginator,EmptyPage,InvalidPage
 
 
@@ -49,8 +51,8 @@ def thankyou(request):
     return render_to_response('thanks.html')
 
 def profesores_v(request,pagina):
-    profesorList = Profesor.objects.all();
-    paginator = Paginator(profesorList,10);
+    profesorList = Profesor.objects.all()
+    paginator = Paginator(profesorList,10)
     try:
         page = int(pagina)
     except:
@@ -61,7 +63,30 @@ def profesores_v(request,pagina):
         profesores = paginator.page(paginator.num_pages)
     ctx = {'profesores':profesores}
     return render_to_response('Profesores.html',ctx,context_instance=RequestContext(request))
-def singleProfe_v(request):
-    pass
 
+def calRate(rate):
+    t=len(rate)
+    promedio=0;
+    for i in rate:
+        promedio+=rate
+    try:
+        promedio/=t
+        return  promedio
+
+    except:
+        return 0
+def singleProfe_v(request,id_prof):
+    prof=Profesor.objects.get(id=id_prof)
+    rate=ProfesorRate.objects.filter(profesor=prof).select_related()
+    materia=Materia.objects.filter(profesor=prof).select_related()
+    ctx={'prof':prof,'rate':calRate(rate),'profMateria':materia}
+    return render_to_response('profesor.html',ctx, context_instance=RequestContext(request))
+
+def get_profe(request):
+    if request.is_ajax():
+        q = request.GET.get( 'q' )
+        if q is not None:
+            results = Profesor.objects.filter(Q(nombre__icontains=q) | Q(apellido__icontains=q)).order_by( 'name' )
+            return render_to_response( 'results.html', { 'results': results, },
+                                       context_instance = RequestContext( request ) )
 

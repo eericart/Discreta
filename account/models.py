@@ -36,10 +36,17 @@ class Materia(models.Model):
 class Profesor(models.Model):
     nombre = models.CharField(max_length=30, blank=False, null=False)
     appellido = models.CharField(max_length=30, blank=False, null=False)
-    rate = models.IntegerField(default=0)
+
+    def getFull_name (self):
+        return u'%s, %s' % (self.nombre, self.appellido)
 
     def __unicode__(self):
         return u'%s, %s' % (self.appellido, self.nombre)
+
+class ProfesorRate (models.Model):
+    profesor = models.ForeignKey('Profesor')
+    user = models.ForeignKey('UserProfile')
+    rate = models.IntegerField(default=0)
 
 class MateriaAprobada (models.Model):
     materia = models.ForeignKey('Materia')
