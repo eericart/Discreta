@@ -46,7 +46,6 @@ INSTALLED_APPS = (
     'south',
     'storages',
     'account',
-    'bootstrap3',
     'ws',
 
 
