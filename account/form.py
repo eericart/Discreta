@@ -1,5 +1,5 @@
 from django import forms
-from account.models import UserProfile
+from account.models import UserProfile,Carrera,Materia
 
 
 class LoginForm(forms.Form):
@@ -12,9 +12,9 @@ class RegistrationForm(forms.Form):
     lastname = forms.CharField(widget=forms.TextInput())
     email = forms.EmailField(widget=forms.TextInput())
     password = forms.CharField(widget=forms.PasswordInput(render_value=False), min_length=8)
+    carrera = forms.ModelChoiceField(queryset=Carrera.objects.all(),required=True,empty_label=None)
 
-class RegistrationFormCarrera(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ('carrera',)
+
+class RegistrationFormC(forms.Form):
+    materias = forms.ModelMultipleChoiceField(queryset=Carrera.objects.get(id="IDS").materias.order_by(), required=False,widget=forms.CheckboxSelectMultiple)
 

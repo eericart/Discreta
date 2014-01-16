@@ -4,12 +4,18 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    carrera = models.OneToOneField('Carrera', null=True,blank=True)
-    materiaAprobadas = models.ManyToManyField('MateriaAprobada')
-    total_credito_aprobado = models.IntegerField(default=0)
+    carrera = models.ForeignKey('Carrera')
 
     def __unicode__(self):
         return self.user.email
+
+    def get_credito_apobado (self):
+        ap=0
+        materia=MateriaDadas.objects.filter(user=self)
+        for m in materia:
+            ap += m.materia.credito
+        return ap
+
 
 
 class Carrera(models.Model):
@@ -48,6 +54,7 @@ class ProfesorRate (models.Model):
     user = models.ForeignKey('UserProfile')
     rate = models.IntegerField(default=0)
 
-class MateriaAprobada (models.Model):
+class MateriaDadas (models.Model):
     materia = models.ForeignKey('Materia')
-    profesor = models.ForeignKey('Profesor')
+    user = models.ForeignKey('UserProfile')
+    aprobada = models.BooleanField(default=False)

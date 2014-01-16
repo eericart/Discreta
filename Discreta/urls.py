@@ -35,7 +35,7 @@ urlpatterns += patterns('account.views',
     url(r'^login/$','login_v',name='login_v'),
     url(r'^logout/$','logout_v',name='logout_v'),
     url(r'^signup/$','sign_up',name='sign_up'),
-    url(r'^dash/$','dash',name='dash'),
+    url(r'^complete/profile/$','sigup_complete',name='complete'),
 
 )
 
@@ -44,3 +44,7 @@ urlpatterns += patterns('ws.views',
     url(r'^ws/Profesor/$','wsProf_view',name= "ws_prof_url"),
 )
 
+urlpatterns += patterns('Dash.views',
+    url(r'^dash/$','dash',name='dash'),
+
+)

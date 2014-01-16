@@ -5,11 +5,13 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from Home.form import Contact
 from django.core.mail import send_mail, BadHeaderError
-from account.models import Profesor,ProfesorRate,Materia
+from account.models import Profesor,ProfesorRate,Materia,User
 from django.core.paginator import Paginator,EmptyPage,InvalidPage
 
 
 def home(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/dash')
     return render_to_response('index.html', context_instance=RequestContext(request))
 
 

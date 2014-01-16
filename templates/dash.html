@@ -6,41 +6,17 @@
 <div id="container tabs">
     <ul class="nav nav-tabs">
         <li class="active"><a href="/dash/"><i class="icon-user"></i>About</a>
-        <li><a href="/dash/pensum/"><i class="icon-book"></i>History</a></li>
+        <li><a href="/dash/history/"><i class="icon-book"></i>History</a></li>
     </ul>
 </div>
 <div class="page-header">
   <h1>{{user.get_full_name}}</h1>
 </div>
-<div class="span4">
-{%if uprofile.get_profile.avatar %}
-<img src="/media/{{uprofile.get_profile.avatar}}" class="img-circle" height="200" width="200">
-{%else%}
-<img src="/media/img/no-profile.gif">
-{%endif%}
-</div>
-    <div class="span4">
-		<h3>About Me</h3>
-		<p>{{uprofile.get_profile.about}}</p>
-				<h3>Skills</h3>
-	{% for i in uprofile.get_profile.skill.all%}
-		<p>{{i.skill}}</p>
-	{% endfor %}
-	</div>
-	</div>
-	<div class="row">
-		<button class="btn btn-large btn-inverse" type="submit">Hire</button>
 
 <h3>Basic Infomation</h3>
-<p>Birth Day: {{uprofile.get_profile.birthday}}</p>
-		<p>Gender:  {{uprofile.get_profile.gender}}</p>
-		<p>Country: {{uprofile.get_profile.country}}</p>
-		<p>City: {{uprofile.get_profile.city}}</p>
-		<p>Phone: {{uprofile.get_profile.phone}}</p>
-		<p>E-mail: {{uprofile.email}}</p>
-	</div>
+<p>Carrera:  {{ uprofile.carrera}}</p>
+<p>Creditos Aprobados: {{uprofile.get_credito_apobado}}</p>
 {%endblock%}
-</body>
-</html>
+
 
 

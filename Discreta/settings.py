@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'account',
     'bootstrap3',
     'ws',
+    'Dash',
 
 
 )
