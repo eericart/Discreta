@@ -16,6 +16,11 @@
 <h3>Basic Infomation</h3>
 <p>Carrera:  {{ uprofile.carrera}}</p>
 <p>Creditos Aprobados: {{uprofile.get_credito_apobado}}</p>
+
+<h3>Class History</h3>
+    {% for m in materias %}
+        <p>{{ m.materia.nombre}}</p>
+    {% endfor %}
 {%endblock%}
 
 

@@ -39,6 +39,11 @@ class Materia(models.Model):
     def __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
 
+    def get_importancia(self,user):
+        materia=Carrera.objects.get(id=UserProfile.objects.get(user=user).carrera.id).materias.all()
+        m=materia.filter( prerequsito =self)
+        return len(m)
+
 class Profesor(models.Model):
     nombre = models.CharField(max_length=30, blank=False, null=False)
     appellido = models.CharField(max_length=30, blank=False, null=False)
@@ -48,6 +53,13 @@ class Profesor(models.Model):
 
     def __unicode__(self):
         return u'%s, %s' % (self.appellido, self.nombre)
+
+    def get_rate (self):
+        op=0
+        rate=ProfesorRate.objects.filter(profesor=self).values('rate')
+        for r in rate:
+            op+=r['rate']
+        return op/len(rate)
 
 class ProfesorRate (models.Model):
     profesor = models.ForeignKey('Profesor')

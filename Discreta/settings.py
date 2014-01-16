@@ -51,6 +51,8 @@ INSTALLED_APPS = (
     'Dash',
 
 
+
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -132,6 +134,7 @@ AUTHENTICATION_BACKENDS = (
     'account.backend.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
 
 try:
     from local_settings import *

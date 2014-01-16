@@ -1,16 +1,31 @@
 {%extends 'base.html' %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts }
+{% bootstrap_messages %}
 {% block content %}
 <div class="jumbotron">
     <p>
         {{ prof.nombre }}
-        {{ rate }}
         <ul>
             {%  for m in profMateria%}
-            <li>{{ m.id }}</li>
+            <li>{{ m.nombre }}</li>
             {% endfor %}
-
         </ul>
+    {{  prof.get_rate }}
 
     </p>
+    {% if vote %}
+    <form action="." method="post" class="form-contact">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='Enviar' reset="Cancelar" %}{% endbuttons %}
+    </form>
+    {% endif %}
 </div>
 {% endblock %}

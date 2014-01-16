@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%block title%}{{user.get_full_name}}- Pensum{%endblock%}
+{%block content%}
+<br><br>
+<div id="container tabs">
+    <ul class="nav nav-tabs">
+        <li><a href="/dash/"><i class="icon-user"></i>About</a>
+        <li class="active"><a href="/dash/history/"><i class="icon-book"></i>History</a></li>
+    </ul>
+</div>
+<div class="page-header">
+  <h1>{{user.get_full_name}}</h1>
+   {% for m in materias %}
+       <p>{{ m.nombre }}</p>
+    {% endfor %}
+</div>
+
+<h3></h3>
+
+{%endblock%}

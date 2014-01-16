@@ -3,9 +3,9 @@ from django.db.models import Q
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from Home.form import Contact
+from Home.form import Contact, RateForm
 from django.core.mail import send_mail, BadHeaderError
-from account.models import Profesor,ProfesorRate,Materia,User
+from account.models import Profesor,ProfesorRate,Materia, UserProfile
 from django.core.paginator import Paginator,EmptyPage,InvalidPage
 
 
@@ -66,22 +66,20 @@ def profesores_v(request,pagina):
     ctx = {'profesores':profesores}
     return render_to_response('Profesores.html',ctx,context_instance=RequestContext(request))
 
-def calRate(rate):
-    t=len(rate)
-    promedio=0;
-    for i in rate:
-        promedio+=rate
-    try:
-        promedio/=t
-        return  promedio
-
-    except:
-        return 0
 def singleProfe_v(request,id_prof):
     prof=Profesor.objects.get(id=id_prof)
-    rate=ProfesorRate.objects.filter(profesor=prof).select_related()
     materia=Materia.objects.filter(profesor=prof).select_related()
-    ctx={'prof':prof,'rate':calRate(rate),'profMateria':materia}
+    vote=False
+    profile=UserProfile.objects.get(user=request.user)
+    if not ProfesorRate.objects.filter(Q(profesor=prof) & Q(user=profile)) :
+        vote=True
+    if request.method == "POST":
+        form = RateForm(request.POST)
+        if form.is_valid():
+            rate= int(form.cleaned_data['vote'])
+            r=ProfesorRate.objects.create(user=profile,profesor=prof,rate=rate)
+            r.save()
+    ctx={'prof':prof,'profMateria':materia,'form':RateForm,'vote':vote}
     return render_to_response('profesor.html',ctx, context_instance=RequestContext(request))
 
 def get_profe(request):

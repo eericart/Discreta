@@ -23,7 +23,7 @@ def login_v(request): #Log in View
                 auth_user=authenticate(email=email,password=password)
                 if auth_user is not None and auth_user.is_active:
                     login(request,auth_user)
-                    return redirect('/index')
+                    return redirect('/dash')
                 else:
                     msg='Wrong Email and password combination.'
         form=LoginForm()

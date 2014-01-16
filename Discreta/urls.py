@@ -20,6 +20,7 @@ urlpatterns = patterns('Home.views',
 
 urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
+
 )
 
 
@@ -46,5 +47,6 @@ urlpatterns += patterns('ws.views',
 
 urlpatterns += patterns('Dash.views',
     url(r'^dash/$','dash',name='dash'),
+    url(r'^dash/history/$','history',name='history'),
 
 )
