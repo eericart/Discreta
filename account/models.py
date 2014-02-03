@@ -66,6 +66,12 @@ class Profesor(models.Model):
             op=0
         return op
 
+    def get_numRate(self):
+        rate=ProfesorRate.objects.filter(profesor=self).values('rate')
+
+        return len(rate)
+
+
 
 class ProfesorRate (models.Model):
     profesor = models.ForeignKey('Profesor')

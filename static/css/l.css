@@ -1,5 +1,8 @@
 /* custom template */
-
+body, html {
+  height: 100%;
+  width: 100%;
+}
 a {
   color:#222222;
 }
@@ -40,7 +43,7 @@ hr {
 }
 
 .full{
-  padding-top:70px;
+  padding-top:0px;
 }
 
 .box {
@@ -105,33 +108,6 @@ hr {
     background-color:#393939;
 }
 
-.logo {
-  display:block;
-  padding:3px;
-  background-color:#fff;
-  color:#3B5999;
-  height:28px;
-  width:28px;
-  margin:9px;
-  margin-right:2px;
-  margin-left:15px;
-  font-size:20px;
-  font-weight:700;
-  text-align:center;
-  text-decoration:none;
-  text-shadow:0 0 1px;
-  border-radius:2px;
-}
-#sidebar-footer {
-  background-color:#444;
-  position:absolute;
-  bottom:5px;
-  padding:5px;
-}
-#footer {
-  margin-bottom:20px;
-}
-
 /* bootstrap overrides */
 
 h1,h2,h3 {
@@ -179,8 +155,8 @@ h1,h2,h3 {
   background-color:#dddddd;
 }
 .page-header {
-  margin-top: 55px;
-  padding-top: 9px;
+  margin-top: 25px;
+  padding-top: 0px;
   border-top:1px solid #eeeeee;
   font-weight:700;
   text-transform:uppercase;
@@ -218,9 +194,7 @@ h1,h2,h3 {
    box-shadow:0 0 0;
 }
 
-small.text-muted {
-  font-family:courier,courier-new,monospace;
-}
+
 
 /* adjust the contents on smaller devices */
 @media (max-width: 768px) {

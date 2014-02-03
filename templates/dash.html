@@ -1,18 +1,47 @@
 {% extends 'Base-dash.html' %}
-{%block title%}{{user.get_full_name}}- Pensum{%endblock%}
+{%block title%}{{user.get_full_name}} - Dashboard{%endblock%}
 
 {% block contenido %}
 <div class="padding">
   <div class="full col-sm-9">
     <!-- content -->
     <div class="row">
+<div class="page-header" >
+  <h1>{{user.get_full_name}}</h1>
+</div>
       <!-- main col left -->
       <div class="col-sm-5">
         <div class="panel panel-default">
-          <div class="panel-thumbnail"><img src="/static/img/img-a2.jpg" class="img-responsive"></div>
+          <div class="panel-thumbnail"><img src="/static/img/ids.jpg" class="img-responsive"></div>
             <div class="panel-body">
-              <p class="lead">Urbanization</p>
-              <p>45 Followers, 13 Posts</p>
-              <p><img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px"></p></div></div>
+              <p class="lead">{{user.get_full_name}}</p>
+              <p><td>Carrera:{{ uprofile.carrera}}</p>
+              <p>Creditos Aprobados: {{uprofile.get_credito_apobado}}</p>
+              <p>Registered since:11/12/2013</p>
+            </div>
+            <div class="panel-footer">
+            <a href="/user/settings" class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-original-title="Setting"><i class="glyphicon glyphicon-cog"></i></a>
+          </div>
+          </div>
+        <br> <br>
+
+        </div>
+          <div class="col-sm-7">
+            <div class="panel panel-default">
+              <div class="panel-heading"><a href="/dash/history/" class="pull-right">View all</a> <h4>last period</h4></div>
+              <div class="panel-body">
+                <ul class="list-group">
+                {% for m in materias %}
+                  <li class="list-group-item">{{ m.materia.nombre}}</li>
+                {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <br><br>
+          </div>
+      </div>
+    </div>
+  </div>
+
 
 {% endblock %}

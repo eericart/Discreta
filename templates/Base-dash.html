@@ -16,10 +16,9 @@
             <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
             </ul>
             <ul class="nav hidden-xs" id="lg-menu">
-              <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
-              <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
-              <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
-              <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
+              <li class="active"><a href="/dash"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+              <li><a href="/dash/history/"><i class="glyphicon glyphicon-book"></i> History</a></li>
+              <li><a href="/dash/program"><i class="glyphicon glyphicon-list"></i> Program</a></li>
             </ul>
 
             <!-- tiny only nav-->
@@ -68,58 +67,7 @@
   {% endblock %}
 {%block content%}
 {% block contenido %}
-
 {% endblock contenido %}
-<!--
-<div class="page-header" >
-  <h1>{{user.get_full_name}}</h1>
-</div>
-<div class="row user-infos">
-  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2 class="panel-title">User information</h2>
-      </div>
-        <div class="panel-body">
-            <div class="row">
-              <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-                <img class="img-rounded" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" alt="User Pic">
-              </div>
-              <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-                <img class="img-rounded" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50" alt="User Pic">
-              </div>
-              <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                <strong>{{user.get_full_name}}</strong><br>
-                <table class="table table-user-information">
-                  <tbody>
-                    <tr>
-                      <td>Carrera:</td>
-                      <td>{{ uprofile.carrera}}</td>
-                    </tr>
-                    <tr>
-                      <td>Creditos Aprobados:</td>
-                      <td>{{uprofile.get_credito_apobado}}</td>
-                    </tr>
-                    <tr>
-                      <td>Registered since:</td>
-                      <td>11/12/2013</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-          </div>
-        </div>
-    <div class="panel-footer">
-      <button class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i></button>
-  </div>
-</div>
-</div>
-<h3>Class History</h3>
-    {% for m in materias %}
-        <p>{{ m.materia.nombre}}</p>
-    {% endfor %}
- <a  class="btn btn-lg btn-default" href="/complete/profile">Add Class</a>
--->
     </div>
   </div>
 </div>
