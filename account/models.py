@@ -56,10 +56,16 @@ class Profesor(models.Model):
 
     def get_rate (self):
         op=0
+
         rate=ProfesorRate.objects.filter(profesor=self).values('rate')
         for r in rate:
             op+=r['rate']
-        return op/len(rate)
+        if len(rate)!=0:
+            op/=len(rate)
+        else:
+            op=0
+        return op
+
 
 class ProfesorRate (models.Model):
     profesor = models.ForeignKey('Profesor')

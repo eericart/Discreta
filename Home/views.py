@@ -7,6 +7,7 @@ from Home.form import Contact, RateForm
 from django.core.mail import send_mail, BadHeaderError
 from account.models import Profesor,ProfesorRate,Materia, UserProfile
 from django.core.paginator import Paginator,EmptyPage,InvalidPage
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -66,8 +67,9 @@ def profesores_v(request,pagina):
     ctx = {'profesores':profesores}
     return render_to_response('Profesores.html',ctx,context_instance=RequestContext(request))
 
+@login_required(login_url='/login/')
 def singleProfe_v(request,id_prof):
-    prof=Profesor.objects.get(id=id_prof)
+    prof=Profesor.objects.get(id=int(id_prof))
     materia=Materia.objects.filter(profesor=prof).select_related()
     vote=False
     profile=UserProfile.objects.get(user=request.user)

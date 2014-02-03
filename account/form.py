@@ -15,6 +15,8 @@ class RegistrationForm(forms.Form):
     carrera = forms.ModelChoiceField(queryset=Carrera.objects.all(),required=True,empty_label=None)
 
 
-class RegistrationFormC(forms.Form):
-    materias = forms.ModelMultipleChoiceField(queryset=Carrera.objects.get(id="IDS").materias.order_by(), required=False,widget=forms.CheckboxSelectMultiple)
 
+
+class RegistrationFormC(forms.Form):
+
+    materias = forms.ModelMultipleChoiceField(queryset=Materia.objects.all(), required=False,widget=forms.CheckboxSelectMultiple())

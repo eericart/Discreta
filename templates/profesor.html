@@ -17,13 +17,13 @@
             <li>{{ m.nombre }}</li>
             {% endfor %}
         </ul>
-    {{  prof.get_rate }}
+    Score: {{  prof.get_rate }}
 
     </p>
     {% if vote %}
-    <form action="." method="post" class="form-contact">
+    <form action="." method="post"  class="form-row">
         {% csrf_token %}
-        {% bootstrap_form form %}
+        {% bootstrap_form form   layout='inline' %}
         {% buttons submit='Enviar' reset="Cancelar" %}{% endbuttons %}
     </form>
     {% endif %}

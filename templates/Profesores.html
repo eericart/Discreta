@@ -1,78 +1,64 @@
 {% extends 'base.html' %}
 
 {% block css %}
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="static/css/profesor-pages.css" type="text/css" media="all" />
+    <script src="static/js/profesor.js"></script>
 
 {% endblock %}
-{% block script %}
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $( document ).ready( function() {
-            $( '#searchSubmit' ).click( function() {
-                q = $( '#q' ).val();
-                $( '#results' ).html( '&nbsp;' ).load( '{% url "get_profe" %}?q=' + q );
-            });
-        });
-        $( document ).ajaxStart( function() {
-            $( '#spinner' ).show();
-        }).ajaxStop( function() {
-                    $( '#spinner' ).hide();
-                });
-    </script>
-{% endblock %}
+
 {%block content %}
 
-<h3>Profesores</h3>
-<div>
-<input id="q" type="text"/>
-<input id="searchSubmit" type="submit" value="Search"/>
-<br/>
-<span class="hint">Type in a query string to search for users</span>
-<div class="margin">
-<span id=2spinner"><img src="http://upload.wikimedia.org/wikipedia/commons/d/de/Ajax-loader.gif"/></span>
-<div id="results"></div>
-</div>
-</div>
-<br>
-{% if profesores %}
-    <table class="table table-hover" id="tabla_productos">
-            <thead>
-                <tr>
-                  <th>Profesor</th>
-                </tr>
-        </thead>
-    {% for p in profesores %}
-             <tbody>
-                     <tr id="tr{{p.id}}">
-                                <td><a href="/profesor/{{ p.id }}"><h4>{{ p.getFull_name}}</h4></a></td>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Profesor List</h1>
+            </div>
+        </div>
 
-                        </tr>
-                </tbody>
-        {% endfor %}
-    </table>
-        
+{% if profesores %}
+
+<div class="container">
+ <div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+ {% for p in profesores %}
+        <div class="row user-row">
+            <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                <img class="img-circle"
+                     src="/static/img/user.png"
+                     alt="User Pic" height="48px" weight="48px">
+            </div>
+            <a href="/profesor/{{p.id}}"><div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                <strong>{{ p.getFull_name}}</strong><br>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                <i class="glyphicon glyphicon-chevron-down text-muted"></i></a>
+            </div>
+        </div>
+                {% endfor %}
+
 {% else %}
         <h2>No existen Profesores</h2>
 {% endif %}
-
+</div>
 {% if profesores %}
-    <center><div class="container pag">
-    <ul class="pagination ">
-                <li><a href="/profesores/page/1"> << </a></li>
+<div class="row text-center">
+
+            <div class="col-lg-12">
+                <ul class="pagination">
+
         {% if profesores.has_previous %}
+        <li><a href="/profesores/page/1"> << </a></li>
                 <li><a href="/profesores/page/{{profesores.previous_page_number }}/"> Prev </a></li>
-        {% else %}
-                <li><a href="#"> Prev </a></li>
+
         {% endif %}
                 <li><a href="#">{{ profesores.number }}</a></li>
         {% if profesores.has_next %}
                 <li><a href="/profesores/page/{{profesores.next_page_number }}/"> Next </a></li>
-        {% else %}
-                <li><a href="#"> Next </a></li>
+                <li><a href="/profesores/page/{{profesores.paginator.num_pages }} "> >> </a></li>
+                </ul>
         {% endif %}
-                <li><a href="/profesores/page/{{profesores.paginator.num_pages }} "> >> </a><li>
-        </ul>
-        </div></center>
+            </div>
+
+        </div>
 {% endif %}
+<br><br>
 {% endblock %}

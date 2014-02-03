@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DjangoModelDependency</ID>
+  <OriginalElement>#Discreta</OriginalElement>
+  <nodes>
+    <node x="270.0" y="744.0">account.models.MateriaDadas</node>
+    <node x="83.91666666666666" y="0.0">account.models.Profesor</node>
+    <node x="156.25" y="595.0">account.models.UserProfile</node>
+    <node x="52.5" y="423.0">account.models.Carrera</node>
+    <node x="5.499999999999972" y="744.0">account.models.ProfesorRate</node>
+    <node x="126.66666666666664" y="149.0">account.models.Materia</node>
+    <node x="258.5" y="457.5">django.contrib.auth.models.User</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="account.models.Materia" target="account.models.Materia">
+      <point x="-104.66666666666667" y="107.0" />
+      <point x="178.99999999999997" y="383.0" />
+      <point x="106.66666666666664" y="383.0" />
+      <point x="106.66666666666664" y="256.0" />
+      <point x="-157.0" y="-0.0" />
+    </edge>
+    <edge source="account.models.ProfesorRate" target="account.models.UserProfile">
+      <point x="55.0" y="-49.5" />
+      <point x="170.49999999999997" y="719.0" />
+      <point x="209.25" y="719.0" />
+      <point x="-53.0" y="49.5" />
+    </edge>
+    <edge source="account.models.UserProfile" target="account.models.Carrera">
+      <point x="-53.0" y="-49.5" />
+      <point x="209.25" y="570.0" />
+      <point x="145.5" y="570.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="account.models.Materia" target="account.models.Profesor">
+      <point x="0.0" y="-107.0" />
+      <point x="283.66666666666663" y="124.0" />
+      <point x="242.91666666666666" y="124.0" />
+      <point x="53.0" y="49.5" />
+    </edge>
+    <edge source="account.models.ProfesorRate" target="account.models.Profesor">
+      <point x="-55.0" y="-49.5" />
+      <point x="60.49999999999997" y="719.0" />
+      <point x="0.0" y="719.0" />
+      <point x="0.0" y="124.0" />
+      <point x="136.91666666666666" y="124.0" />
+      <point x="-53.0" y="49.5" />
+    </edge>
+    <edge source="account.models.UserProfile" target="django.contrib.auth.models.User">
+      <point x="53.0" y="-49.5" />
+      <point x="315.25" y="570.0" />
+      <point x="379.0" y="570.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="account.models.MateriaDadas" target="account.models.UserProfile">
+      <point x="-59.5" y="-49.5" />
+      <point x="329.5" y="719.0" />
+      <point x="315.25" y="719.0" />
+      <point x="53.0" y="49.5" />
+    </edge>
+    <edge source="account.models.MateriaDadas" target="account.models.Materia">
+      <point x="59.5" y="-49.5" />
+      <point x="448.5" y="719.0" />
+      <point x="518.25" y="719.0" />
+      <point x="518.25" y="403.0" />
+      <point x="388.33333333333337" y="403.0" />
+      <point x="104.6666666666667" y="107.0" />
+    </edge>
+    <edge source="account.models.Carrera" target="account.models.Materia">
+      <point x="0.0" y="-61.0" />
+      <point x="145.5" y="403.0" />
+      <point x="283.66666666666663" y="403.0" />
+      <point x="0.0" y="107.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8078794901506372" x="260.3858290304074" y="588.1438611589215" />
+  <SelectedNodes>
+    <node>account.models.ProfesorRate</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+</Diagram>
+

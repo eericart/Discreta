@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="/static/css/dash-page.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/l.css">
+
+{% endblock %}
+
+{% block bar %}
+<div class="wrapper">
+    <div class="box">
+        <div class="row row-offcanvas row-offcanvas-left">
+        <!-- sidebar -->
+        <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+            </ul>
+            <ul class="nav hidden-xs" id="lg-menu">
+              <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
+              <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
+            </ul>
+
+            <!-- tiny only nav-->
+            <ul class   ="nav visible-xs" id="xs-menu">
+              <li><a href ="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
+              <li><a href ="#stories" class="text-center"><i class="glyphicon glyphicon-list"></i></a></li>
+              <li><a href ="#" class="text-center"><i class="glyphicon glyphicon-paperclip"></i></a></li>
+              <li><a href ="#" class="text-center"><i class="glyphicon glyphicon-refresh"></i></a></li>
+            </ul>
+          </div>
+          <!-- /sidebar -->
+
+          <!-- main right col -->
+          <div class="column col-sm-10 col-xs-11" id="main">
+            <!-- top nav -->
+            <div class="navbar navbar-default navbar-static-top">
+              <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand "  href="{% url "home" %}"><img src="/static/img/f.png" height="36px" weight="36px">Syllabus</a>
+              </div>
+              <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+               <ul class="nav navbar-nav">
+                 <li><a href = "/profesores/page/1">Profesor</a></li>
+               <li><a href = "#">Retiro</a></li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url "login_v"%}">Settings</a></li>
+                            <li><a href="{% url "logout_v" %}">Logout</a></li>
+                            {% else %}
+                            <li><a href="{% url "login_v"%}">Sign in</a></li>
+                            <li><a href="{% url "sign_up" %}">Sign up</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!-- /top nav -->
+  {% endblock %}
+{%block content%}
+{% block contenido %}
+
+{% endblock contenido %}
+<!--
+<div class="page-header" >
+  <h1>{{user.get_full_name}}</h1>
+</div>
+<div class="row user-infos">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">User information</h2>
+      </div>
+        <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+                <img class="img-rounded" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" alt="User Pic">
+              </div>
+              <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                <img class="img-rounded" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50" alt="User Pic">
+              </div>
+              <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                <strong>{{user.get_full_name}}</strong><br>
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td>Carrera:</td>
+                      <td>{{ uprofile.carrera}}</td>
+                    </tr>
+                    <tr>
+                      <td>Creditos Aprobados:</td>
+                      <td>{{uprofile.get_credito_apobado}}</td>
+                    </tr>
+                    <tr>
+                      <td>Registered since:</td>
+                      <td>11/12/2013</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+    <div class="panel-footer">
+      <button class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i></button>
+  </div>
+</div>
+</div>
+<h3>Class History</h3>
+    {% for m in materias %}
+        <p>{{ m.materia.nombre}}</p>
+    {% endfor %}
+ <a  class="btn btn-lg btn-default" href="/complete/profile">Add Class</a>
+-->
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+

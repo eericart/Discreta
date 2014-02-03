@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from account.models import User, UserProfile,MateriaDadas, Materia
+from account.models import User, UserProfile,MateriaDadas, Materia, Carrera
 from account.form import LoginForm, RegistrationForm, RegistrationFormC
 from django.contrib.auth import login , logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -67,14 +67,17 @@ def sign_up(request):
 
 @login_required(login_url='/login/')
 def sigup_complete (request):
-     if request.method=="POST":
-         form=RegistrationFormC(request.POST)
-         if form.is_valid():
-             materias=form.cleaned_data['materias'].all()
-             for m in materias:
-                 ls=MateriaDadas.objects.create(user=UserProfile.objects.get(user=request.user),materia=m)
-                 ls.aprobada=True
-                 ls.save()
-             return redirect("/")
-     ctx={'form':RegistrationFormC}
-     return render_to_response('signup_c.html',ctx, context_instance=RequestContext(request))
+    form = RegistrationFormC()
+    q=Carrera.objects.get(id=UserProfile.objects.get(user=request.user).carrera_id).materias.all().exclude(id__in=MateriaDadas.objects.filter(user=UserProfile.objects.get(user=request.user)).values_list('materia',flat=True))
+    form.fields['materias'].queryset = q
+    if request.method=="POST":
+        form=RegistrationFormC(request.POST)
+        if form.is_valid():
+            materias=form.cleaned_data['materias'].all()
+            for m in materias:
+                ls=MateriaDadas.objects.create(user=UserProfile.objects.get(user=request.user),materia=m)
+                ls.aprobada=True
+                ls.save()
+            return redirect("/")
+    ctx={'form':form}
+    return render_to_response('signup_c.html',ctx, context_instance=RequestContext(request))
