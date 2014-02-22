@@ -1,0 +1,18 @@
+{%extends 'base.html' %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% block content %}
+<br><br>
+    <form action="." method="post"  class="form-row">
+        {% csrf_token %}
+        {% bootstrap_form form   layout='inline' %}
+        {% buttons submit='Enviar' reset="Cancelar" %}{% endbuttons %}
+    </form>
+{% endblock %}

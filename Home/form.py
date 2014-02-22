@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from account.models import Materia
 
 CHOICE= (('1','1'),('2','2'),('3','3'),('4','4'),('5','5'))
 
@@ -11,4 +12,5 @@ class Contact(forms.Form):
     cc_myself = forms.BooleanField(required=False,label='CC My Selft')
 
 class RateForm (forms.Form):
+    subject= forms.ModelChoiceField(queryset=Materia.objects.all(), required=False,widget=forms.Select())
     vote = forms.ChoiceField(widget=forms.RadioSelect,label='Vote',choices=CHOICE)

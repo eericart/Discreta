@@ -5,7 +5,10 @@
     <link rel="stylesheet" type="text/css" href="/static/css/l.css">
 
 {% endblock %}
+{%block script%}
+<script src="/static/js/Chart.min.js"></script>
 
+{% endblock%}
 {% block bar %}
 <div class="wrapper">
     <div class="box">
@@ -16,9 +19,10 @@
             <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
             </ul>
             <ul class="nav hidden-xs" id="lg-menu">
-              <li class="active"><a href="/dash"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+              <li class="active"><a href="/dash"><i class="glyphicon glyphicon-home"></i> Home</a></li>
               <li><a href="/dash/history/"><i class="glyphicon glyphicon-book"></i> History</a></li>
               <li><a href="/dash/program"><i class="glyphicon glyphicon-list"></i> Program</a></li>
+              <li><a href="/complete/profile/"><i class="glyphicon glyphicon-plus"></i> Add Period</a></li>
             </ul>
 
             <!-- tiny only nav-->

@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'ws',
     'Dash',
+    'chartjs',
 )
 
 MIDDLEWARE_CLASSES = (

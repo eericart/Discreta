@@ -1,7 +1,9 @@
 {% extends 'Base-dash.html' %}
 {%block title%}{{user.get_full_name}} - Dashboard{%endblock%}
 
+
 {% block contenido %}
+
 <div class="padding">
   <div class="full col-sm-9">
     <!-- content -->
@@ -15,9 +17,10 @@
           <div class="panel-thumbnail"><img src="/static/img/ids.jpg" class="img-responsive"></div>
             <div class="panel-body">
               <p class="lead">{{user.get_full_name}}</p>
-              <p><td>Carrera:{{ uprofile.carrera}}</p>
-              <p>Creditos Aprobados: {{uprofile.get_credito_apobado}}</p>
-              <p>Registered since:11/12/2013</p>
+              <p><td>Career:{{ uprofile.carrera}}</p>
+              <p>Approved credits: {{uprofile.get_credito_apobado}}</p>
+              <p>periods:{{uprofile.get_Total_Trimestre}}</p>
+              <p>Registered since:{{uprofile.user.date_joined}}</p>
             </div>
             <div class="panel-footer">
             <a href="/user/settings" class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-original-title="Setting"><i class="glyphicon glyphicon-cog"></i></a>
@@ -32,13 +35,53 @@
               <div class="panel-body">
                 <ul class="list-group">
                 {% for m in materias %}
-                  <li class="list-group-item">{{ m.materia.nombre}}</li>
+                  <li class="list-group-item">{{m.materia.id}}-{{ m.materia.nombre}}</li>
                 {% endfor %}
                 </ul>
               </div>
+
             </div>
-            <br><br>
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>Progress</h4></div>
+              <div class="panel-body">
+ <script type="text/javascript">
+ $(document).ready(function () {
+    var pieData = [{
+        value: {{uprofile.get_credito_apobado}},
+        color: "#30A2F3",
+    }, {
+        value: {{uprofile.get_credito_faltante}},
+        color: "#A3E0F2"
+    }];
+
+    var myPie = new Chart(document.getElementById("chart").getContext("2d")).Pie(pieData, {
+        labelAlign: 'center'
+    });
+});
+        </script>
+        <canvas id="chart" width="500" height="400"></canvas>
+
+
+              </div>
+            <div class="panel-footer">
+                        <div class="pull-right">  <div id="squareb"></div><p>Approved credits:{{uprofile.get_credito_apobado}}</p></div>
+                        <div >  <div id="square"></div><p>Missing credits:{{uprofile.get_credito_faltante}}</p></div>
+          <style contenteditable>
+#squareb{
+  width: 22px;
+  height: 22px;
+  background: #30A2F3;
+}
+#square{
+  width: 22px;
+  height: 22px;
+  background: #A3E0F2;
+}
+          </style>
           </div>
+          </div>
+                      <br><br>
+
       </div>
     </div>
   </div>

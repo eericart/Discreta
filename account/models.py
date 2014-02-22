@@ -16,16 +16,25 @@ class UserProfile(models.Model):
             ap += m.materia.credito
         return ap
 
+    def get_credito_faltante(self):
+        materias =Carrera.objects.get(id=self.carrera.id).materias.all()
+        ap=0
+        for m in materias:
+            ap += m.credito
+        return ap-self.get_credito_apobado()
+
+    def get_Total_Trimestre(self):
+        periodo=Periods.objects.filter(user=self)
+        return len(periodo)
 
 
 class Carrera(models.Model):
     id = models.CharField('ID', primary_key=True,max_length=3)
     nombre = models.CharField(max_length=30, blank=False, null=False)
     materias=models.ManyToManyField('Materia')
-
+    max_credits=models.IntegerField(default=19)
     def __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
-
 
 class Materia(models.Model):
     id = models.CharField('ID', primary_key=True,max_length=6)
@@ -33,7 +42,7 @@ class Materia(models.Model):
     credito = models.IntegerField()
     creditoRequsito = models.IntegerField(default=0)
     importancia = models.IntegerField(default=0)
-    profesor = models.ManyToManyField('Profesor')
+    profesor = models.ManyToManyField('Profesor',null=True, blank=True)
     prerequsito = models.ManyToManyField('Materia', null=True, blank=True)
 
     def __unicode__(self):
@@ -77,8 +86,27 @@ class ProfesorRate (models.Model):
     profesor = models.ForeignKey('Profesor')
     user = models.ForeignKey('UserProfile')
     rate = models.IntegerField(default=0)
+    materia = models.ForeignKey('Materia')
 
 class MateriaDadas (models.Model):
     materia = models.ForeignKey('Materia')
     user = models.ForeignKey('UserProfile')
     aprobada = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'%s' % (self.materia.nombre)
+
+class Periods(models.Model):
+
+    user= models.ForeignKey('UserProfile')
+    materia= models.ManyToManyField('MateriaDadas')
+    num= models.IntegerField(default=0)
+    credito= models.IntegerField(default=19)
+
+    class Meta:
+        verbose_name = ('Period')
+        verbose_name_plural = ('Periods')
+
+    def __unicode__(self):
+        return u'%s-%s' % (self.user.id, self.num)
+

@@ -13,6 +13,7 @@ urlpatterns = patterns('Home.views',
     url(r'^profesores/page/(?P<pagina>.*)/$','profesores_v',name='profesores'),
     url(r'^profesor/(?P<id_prof>.*)/$','singleProfe_v',name='single_profe'),
     url(r'^api/get_profe/$', 'get_profe', name='get_profe'),
+    url(r'^profeosr/vote/(?P<id_prof>.*)/$', 'vote'),
 
 
 
@@ -48,5 +49,6 @@ urlpatterns += patterns('ws.views',
 urlpatterns += patterns('Dash.views',
     url(r'^dash/$','dash',name='dash'),
     url(r'^dash/history/$','history',name='history'),
+    url(r'^dash/program/$','program',name='program'),
 
 )

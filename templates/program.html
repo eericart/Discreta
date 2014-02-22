@@ -7,16 +7,22 @@
   <div class="full col-sm-12">
 
     <!-- content -->
-   {%for p in periods%}
-
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h1>Periods #{{p.num}}</h1>
+          <h1>Next Subjects</h1>
         </di>
         <div class="panel-body">
-          {% for m in p.materia.all %}
-            <p> {{m.materia.id }}-{{ m.materia.nombre }}</p>
+          {% for m in materias%}
+          {% if m and m.importancia = 4 %}
+            <p style="color: #c11919"> {{m.id }}-{{ m.nombre }} </p>
+          {% elif  m and m.importancia = 3 %}
+            <p style="color: #ff6500"> {{m.id }}-{{ m.nombre }} </p>
+          {% elif  m and m.importancia = 2 %}
+            <p style="color: #ffc754"> {{m.id }}-{{ m.nombre }} </p>
+          {% else %}
+          <p > {{m.id }}-{{ m.nombre }} </p>
+          {% endif %}
           {% endfor %}
         </div>
         <div class="panel-footer">
@@ -24,8 +30,6 @@
         </div>
       </div>
     </div>
-    {% endfor %}
-
   </div>
 </div>
 

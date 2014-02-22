@@ -71,10 +71,29 @@ def profesores_v(request,pagina):
 def singleProfe_v(request,id_prof):
     prof=Profesor.objects.get(id=int(id_prof))
     materia=Materia.objects.filter(profesor=prof).select_related()
+    profile=UserProfile.objects.get(user=request.user)
+    form = RateForm()
+    q=materia.exclude(id__in=ProfesorRate.objects.filter(Q(user=profile)& Q(profesor=prof) & Q(materia__in=materia)).values_list('materia',flat=True))
+    form.fields['subject'].queryset = materia
+    if request.method == "POST":
+        form = RateForm(request.POST)
+        if form.is_valid():
+            subject=form.cleaned_data['subject']
+            rate= int(form.cleaned_data['vote'])
+            r=ProfesorRate.objects.create(user=profile,profesor=prof,rate=rate,materia=subject)
+            r.save()
+    ctx={'prof':prof,'profMateria':materia,'form':form}
+    return render_to_response('profesor.html',ctx, context_instance=RequestContext(request))
+
+@login_required(login_url='/login/')
+def vote(request,id_prof):
+    prof=Profesor.objects.get(id=int(id_prof))
+    materia=Materia.objects.filter(profesor=prof).select_related()
     vote=False
     profile=UserProfile.objects.get(user=request.user)
-    if not ProfesorRate.objects.filter(Q(profesor=prof) & Q(user=profile)) :
-        vote=True
+    form = RateForm()
+    q=materia
+    form.fields['subject'].queryset = q
     if request.method == "POST":
         form = RateForm(request.POST)
         if form.is_valid():
@@ -82,7 +101,7 @@ def singleProfe_v(request,id_prof):
             r=ProfesorRate.objects.create(user=profile,profesor=prof,rate=rate)
             r.save()
     ctx={'prof':prof,'profMateria':materia,'form':RateForm,'vote':vote}
-    return render_to_response('profesor.html',ctx, context_instance=RequestContext(request))
+    return render_to_response('modal-vote.html',ctx, context_instance=RequestContext(request))
 
 def get_profe(request):
     if request.is_ajax():

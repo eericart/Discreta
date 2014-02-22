@@ -6,26 +6,38 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-{# Display django.contrib.messages as Bootstrap alerts }
+{# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 {% block content %}
-<div class="jumbotron">
-    <p>
-        {{ prof.nombre }}
-        <ul>
-            {%  for m in profMateria%}
-            <li>{{ m.nombre }}</li>
-            {% endfor %}
-        </ul>
-    Score: {{  prof.get_rate }}
+<br><br>
+<div class="col-sm-5">
+        <div class="panel panel-default">
+            <div class="panel-body">
+              <p class="lead">{{ prof.getFull_name}}</p>
+              <table>
 
-    </p>
-    {% if vote %}
+              {%  for m in profMateria%}
+              <tr>
+            <td>{{ m.nombre }}</td>
+            {% endfor %}
+              </tr>
+            </table>
+
+    <p>Score: {{  prof.get_rate }} of {{prof.get_numRate}}</p>
+            </div>
+            <div class="panel-footer">
+            <a href="/user/settings" class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-original-title="Setting"><i class="glyphicon glyphicon-cog"></i></a>
+          </div>
+          </div>
+        </div>
+    <div class="col-sm-7">
+            <div class="panel panel-default">
+    <div class="panel-heading"><h4>Vote</h4></div>
+              <div class="panel-body">
     <form action="." method="post"  class="form-row">
         {% csrf_token %}
         {% bootstrap_form form   layout='inline' %}
         {% buttons submit='Enviar' reset="Cancelar" %}{% endbuttons %}
     </form>
-    {% endif %}
 </div>
 {% endblock %}
